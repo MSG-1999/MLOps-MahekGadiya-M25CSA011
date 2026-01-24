@@ -1,4 +1,8 @@
+# Assignment_1 ML-DL-Ops :
 
+Q1a------> Results
+
+## i) MNIST Results:
 
 | ExpID | Dataset      | Model     | BatchSize | Optimizer | LR     | Epochs | PinMem | Final_TestAcc | Total_Time_ms |
 |-------|--------------|-----------|-----------|-----------|--------|--------|--------|---------------|---------------|
@@ -66,6 +70,11 @@
 | 62    | MNIST        | ResNet-50 | 16        | SGD       | 0.0001 | 5      | TRUE   | 97.52         | 1194740       |
 | 63    | MNIST        | ResNet-50 | 16        | SGD       | 0.0001 | 7      | FALSE  | 98            | 1710054       |
 | 64    | MNIST        | ResNet-50 | 16        | SGD       | 0.0001 | 7      | TRUE   | 98.04         | 1657906       |
+
+## ii) FashionMNIST Results :
+
+| ExpID | Dataset      | Model     | BatchSize | Optimizer | LR     | Epochs | PinMem | Final_TestAcc | Total_Time_ms |
+|-------|--------------|-----------|-----------|-----------|--------|--------|--------|---------------|---------------|
 | 65    | FashionMNIST | ResNet-18 | 16        | SGD       | 0.001  | 5      | FALSE  | 91.39         | 496985        |
 | 66    | FashionMNIST | ResNet-18 | 16        | SGD       | 0.001  | 5      | TRUE   | 92.61         | 468407        |
 | 67    | FashionMNIST | ResNet-18 | 16        | SGD       | 0.001  | 7      | FALSE  | 92.5          | 691641        |
@@ -131,12 +140,14 @@
 | 127   | FashionMNIST | ResNet-50 | 16        | SGD       | 0.001  | 5      | TRUE   | 90.34         | 1214564       |
 | 128   | FashionMNIST | ResNet-50 | 16        | SGD       | 0.001  | 7      | FALSE  | 91.74         | 1735314       |
 
+## Q1a) Best Model Result :
 
 | Dataset      | Model     | Optimizer | LR    | BatchSize | Final_Test_Acc | Total_Time_ms      |
 |--------------|-----------|-----------|-------|-----------|----------------|--------------------|
 | MNIST        | ResNet-18 | SGD       | 0.001 | 16        | 99.44%         | 1162058.6059093475 |                   
 | FashionMNIST | ResNet-18 | Adam      | 0.001 | 32        | 92.44%         | 1079687.6077651978 |                  
 
+## Q1b) Results ----->
 
 | Dataset | Kernel | Train_Time_ms | Test_Accuracy |
 |---------|--------|---------------|---------------|
@@ -149,6 +160,9 @@
 | FashionMNIST | poly   | 475355.97     | 86.30%        |
 | FashionMNIST | rbf    | 394136.14     | 88.28%        |
 
+## Q2) Results ----->
+
+## For GPU :
 
 | Compute | Model    | Optimizer | Batch_Size | Epochs | Train_Time_ms | Test_Accuracy | FLOPs_GMACs |
 |---------|----------|-----------|------------|--------|---------------|---------------|-------------|
@@ -157,6 +171,7 @@
 | GPU     | ResNet50 | SGD       | 16         | 5      | 2837216.78    | 82.09         | 4.09        |
 | GPU     | ResNet50 | Adam      | 16         | 5      | 2919232.36    | 92.29         | 4.09        |
 
+## For CPU :
 
 | Compute | Model    | Optimizer | Batch_Size | Epochs | Train_Time_ms | Test_Accuracy | FLOPs_GMACs |
 |---------|----------|-----------|------------|--------|---------------|---------------|-------------|
