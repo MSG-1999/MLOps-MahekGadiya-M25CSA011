@@ -1,0 +1,3 @@
+Dataset,Kernel,Train_Time_ms,Test_Accuracy
+FashionMNIST,poly,475355.97,86.30%
+FashionMNIST,rbf,394136.14,88.28%

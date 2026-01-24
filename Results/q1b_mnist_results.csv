@@ -1,0 +1,3 @@
+Dataset,Kernel,Train_Time_ms,Test_Accuracy
+MNIST,poly,292633.55,97.71%
+MNIST,rbf,281450.73,97.92%

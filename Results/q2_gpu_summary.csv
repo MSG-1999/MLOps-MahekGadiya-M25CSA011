@@ -1,0 +1,5 @@
+Compute,Model,Optimizer,Batch_Size,Epochs,Train_Time_ms,Test_Accuracy,FLOPs_GMACs
+GPU,ResNet18,SGD,16,5,1121954.7,88.53,1.82
+GPU,ResNet18,Adam,16,5,1149516.71,92.79,1.82
+GPU,ResNet50,SGD,16,5,2837216.78,82.09,4.09
+GPU,ResNet50,Adam,16,5,2919232.36,92.29,4.09

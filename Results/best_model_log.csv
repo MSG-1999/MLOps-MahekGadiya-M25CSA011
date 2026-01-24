@@ -1,0 +1,17 @@
+Dataset,Model,Optimizer,LR,BatchSize,Final_Test_Acc,Total_Time_ms,History,PTH_File
+MNIST,ResNet-18,SGD,0.001,16,99.44%,1162058.6059093475,"   Epoch [1/7] TrainLoss: 0.3036 | TrainAcc: 91.16% | ValLoss: 0.0593 | ValAcc: 98.41%
+   Epoch [2/7] TrainLoss: 0.0601 | TrainAcc: 98.25% | ValLoss: 0.0392 | ValAcc: 98.66%
+   Epoch [3/7] TrainLoss: 0.0416 | TrainAcc: 98.79% | ValLoss: 0.0277 | ValAcc: 99.11%
+   Epoch [4/7] TrainLoss: 0.0292 | TrainAcc: 99.11% | ValLoss: 0.0252 | ValAcc: 99.13%
+   Epoch [5/7] TrainLoss: 0.0227 | TrainAcc: 99.32% | ValLoss: 0.0313 | ValAcc: 98.93%
+   Epoch [6/7] TrainLoss: 0.0163 | TrainAcc: 99.56% | ValLoss: 0.0196 | ValAcc: 99.33%
+   Epoch [7/7] TrainLoss: 0.0132 | TrainAcc: 99.68% | ValLoss: 0.0202 | ValAcc: 99.30%
+",best_mnist_model.pth
+FashionMNIST,ResNet-18,Adam,0.001,32,92.44%,1079687.6077651978,"   Epoch [1/7] TrainLoss: 0.4452 | TrainAcc: 83.81% | ValLoss: 0.4179 | ValAcc: 85.83%
+   Epoch [2/7] TrainLoss: 0.2779 | TrainAcc: 89.94% | ValLoss: 0.2658 | ValAcc: 90.53%
+   Epoch [3/7] TrainLoss: 0.2337 | TrainAcc: 91.51% | ValLoss: 0.2250 | ValAcc: 92.03%
+   Epoch [4/7] TrainLoss: 0.2039 | TrainAcc: 92.52% | ValLoss: 0.2451 | ValAcc: 91.16%
+   Epoch [5/7] TrainLoss: 0.1746 | TrainAcc: 93.60% | ValLoss: 0.2118 | ValAcc: 92.44%
+   Epoch [6/7] TrainLoss: 0.1471 | TrainAcc: 94.67% | ValLoss: 0.1947 | ValAcc: 93.47%
+   Epoch [7/7] TrainLoss: 0.1205 | TrainAcc: 95.64% | ValLoss: 0.2289 | ValAcc: 92.44%
+",best_fashionmnist_model.pth
