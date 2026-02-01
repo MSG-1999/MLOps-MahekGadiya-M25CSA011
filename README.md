@@ -1,3 +1,3 @@
 
 ## Overview
-This repository contains YAML-based data contracts created as part of the **ML-DL-Ops** assignment on **Data Contracts, Data Quality, and Governance**.
+This repository contains YAML-based data contracts created as part of the **ML-DL-Ops** assignment 2 on **Data Contracts, Data Quality, and Governance**.
