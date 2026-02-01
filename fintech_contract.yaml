@@ -1,0 +1,42 @@
+dataContractSpecification: 0.9.3
+id: urn:datacontract:fintech:transactions
+version: 1.0.0
+
+info:
+  title: "Financial Transactions Log"
+  description: "Transaction records for fraud detection"
+  owner: "FinTech Data Engineering"
+  classification: restricted
+  tags: [fintech, fraud, transactions]
+
+schema:
+  type: object
+  properties:
+    account_source_id:
+      type: string
+      description: "Source account ID (10-char uppercase alphanumeric)"
+      physical_mapping: acct_src
+
+    account_destination_id:
+      type: string
+      description: "Destination account ID"
+      physical_mapping: acct_dest
+
+    transaction_timestamp:
+      type: string
+      format: date-time
+      description: "Transaction timestamp"
+      physical_mapping: tx_ts
+
+  required:
+    - account_source_id
+    - account_destination_id
+    - transaction_timestamp
+
+quality:
+  - name: source_account_id_format
+    type: validity
+    expression: "REGEXP_LIKE(account_source_id, '^[A-Z0-9]{10}$')"
+    threshold: "100%"
+    enforcement: hard
+    description: "HARD CIRCUIT BREAKER — invalid account IDs must block pipeline"
