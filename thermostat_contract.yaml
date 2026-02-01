@@ -1,0 +1,46 @@
+dataContractSpecification: 0.9.3
+id: urn:datacontract:iot:thermostat
+version: 1.0.0
+
+info:
+  title: "Smart Thermostat Telemetry"
+  description: "Temperature and battery readings from thermostat fleet"
+  owner: "IoT Analytics Team"
+  classification: internal
+  tags: [iot, sensors, temperature]
+
+schema:
+  type: object
+  properties:
+    device_id:
+      type: string
+      description: "Unique thermostat device ID"
+      physical_mapping: dev_id
+
+    temperature_celsius:
+      type: number
+      description: "Measured temperature in Celsius"
+      physical_mapping: temp_c
+
+    battery_level:
+      type: number
+      description: "Battery level from 0.0 to 1.0"
+      physical_mapping: batt_lvl
+
+  required:
+    - device_id
+    - temperature_celsius
+    - battery_level
+
+quality:
+  - name: temperature_valid_range
+    type: validity
+    expression: "temperature_celsius >= -30 AND temperature_celsius <= 60"
+    threshold: "100%"
+    enforcement: hard
+
+  - name: battery_level_valid_range
+    type: validity
+    expression: "battery_level >= 0.0 AND battery_level <= 1.0"
+    threshold: "100%"
+    enforcement: hard
