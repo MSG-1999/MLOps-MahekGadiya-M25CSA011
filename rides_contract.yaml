@@ -1,0 +1,110 @@
+#
+# DATA CONTRACT: CityMove Ride Events
+#
+# NEGOTIATION SUMMARY
+# ───────────────────
+# Producer: CityMove Data Engineering Team
+# Consumer: Dynamic Pricing ML Team
+#
+# Agreed Terms:
+# - Logical, business-friendly column names required
+# - fare must never be negative (hard enforcement)
+# - driver rating must be between 1.0 and 5.0 inclusive
+# - distance must always be present
+# - passenger ID flagged as PII
+# - Data freshness SLA: 30 minutes post-ride completion
+#
+# Any violation of fare or rating rules will BLOCK the pipeline
+#
+
+dataContractSpecification: 0.9.3
+id: urn:datacontract:citymove:rides
+version: 1.0.0
+
+info:
+  title: "CityMove Ride Events"
+  description: |
+    Ride-level events consumed by the Dynamic Pricing ML system.
+    Provides pickup timestamps, fare amounts, ratings, and distance traveled.
+  owner: "CityMove Data Engineering"
+  contact:
+    name: "Data Platform Team"
+    email: "data-platform@citymove.com"
+    slack: "#data-platform"
+  classification: confidential
+  tags: [rides, pricing, ml, pii]
+
+schema:
+  type: object
+  properties:
+    ride_id:
+      type: string
+      description: "Unique identifier for a ride"
+      pii: false
+      physical_mapping: r_id
+
+    pickup_timestamp:
+      type: string
+      format: date-time
+      description: "Ride pickup time in UTC"
+      pii: false
+      physical_mapping: ts_start
+
+    passenger_id:
+      type: integer
+      description: "Unique passenger identifier"
+      pii: true
+      physical_mapping: pax_id
+
+    driver_rating:
+      type: number
+      minimum: 1.0
+      maximum: 5.0
+      description: "Driver rating on a 1.0–5.0 scale"
+      pii: false
+      physical_mapping: d_rating
+
+    fare_usd:
+      type: number
+      minimum: 0
+      description: "Total ride fare in USD"
+      pii: false
+      physical_mapping: fare_final
+
+    distance_meters:
+      type: integer
+      description: "Distance traveled in meters"
+      pii: false
+      physical_mapping: dist_m
+
+  required:
+    - ride_id
+    - pickup_timestamp
+    - passenger_id
+    - driver_rating
+    - fare_usd
+    - distance_meters
+
+sla:
+  freshness:
+    threshold: "30 minutes"
+    description: "Data available within 30 minutes of ride completion"
+
+quality:
+  - name: fare_non_negative
+    type: validity
+    expression: "fare_usd >= 0"
+    threshold: "100%"
+    enforcement: hard
+
+  - name: driver_rating_valid_range
+    type: validity
+    expression: "driver_rating >= 1.0 AND driver_rating <= 5.0"
+    threshold: "100%"
+    enforcement: hard
+
+  - name: distance_not_null
+    type: completeness
+    column: distance_meters
+    threshold: "100%"
+    enforcement: hard
