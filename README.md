@@ -12,10 +12,10 @@ Face deployment, and Docker-based reproducibility.
 
 ## 🎯 Overview
 
--   Fine-tuned `distilbert-base-cased` for 8 Goodreads genres\
--   Evaluated locally with macro metrics\
--   Uploaded model to Hugging Face Hub\
--   Re-evaluated from Hugging Face to verify deployment\
+-   Fine-tuned `distilbert-base-cased` for 8 Goodreads genres
+-   Evaluated locally with macro metrics
+-   Uploaded model to Hugging Face Hub
+-   Re-evaluated from Hugging Face to verify deployment
 -   Containerized training (GPU) and evaluation (CPU) using Docker
 
 ------------------------------------------------------------------------
@@ -45,44 +45,43 @@ Assignment_3/
 ```
 ------------------------------------------------------------------------
 
-## 📊 Model Performance
+## 📊 Results & Model Performance
 
-### Overall Metrics
+### 1) Overall Metrics (Local vs Hugging Face Evaluation)
 
-| Metric  | Score |
-|---|---|
-| Accuracy | **0.61** |
-| Precision (Macro) | 0.607 |
-| Recall (Macro) | 0.61 |
-| F1-Score (Macro) | 0.607 |
+| Metric  | Score | HF Hub  |
+|---|---|---|
+| Accuracy | **0.61** | **0.61** |
+| Precision (Macro) | 0.607 | 0.607 |
+| Recall (Macro) | 0.61 | 0.61 |
+| F1-Score (Macro) | 0.607 | 0.607 |
+
+### 2) Per-Class Performance (Local vs Hugging Face Evaluation)
+
+| Genre                     | Precision | Recall | F1-Score |
+|---------------------------|-----------|--------|----------|
+| Children                  | 0.65      | 0.62   | 0.63     |
+| Comics & Graphic          | 0.80      | 0.80   | *0.80* |
+| Fantasy & Paranormal      | 0.45      | 0.47   | 0.46     |
+| History & Biography       | 0.58      | 0.54   | 0.56     |
+| Mystery/Thriller/Crime    | 0.57      | 0.62   | 0.59     |
+| Poetry                    | 0.77      | 0.81   | *0.79* |
+| Romance                   | 0.61      | 0.66   | 0.63     |
+| Young Adult               | 0.42      | 0.36   | 0.39     |
+
+### 3) Note : 
+      i) All metrics show **0.0000 difference** between local and hub models
+      ii) this confirm's that correct model uploaded and downloaded.
 
 ------------------------------------------------------------------------
 
 ### Best & Weakest Genres
 
--   🏆 Best: Comics & Graphic (0.80 F1)
--   🏆 Strong: Poetry (0.79 F1)
--   ⚠ Most challenging: Young Adult (0.39 F1)
+-   🏆 Best: Comics & Graphic (0.80 -> F1)
+-   🏆 Strong: Poetry (0.79 -> F1)
+-   ⚠ Most challenging: Young Adult (0.39 -> F1)
 
-Balanced macro and weighted averages indicate uniform class
-distribution.
-
-------------------------------------------------------------------------
-
-## 🔄 Local vs Hugging Face Evaluation
-
- | Metric  | Score | HF Hub  |
- |---|---|---|
- | Accuracy | **0.61** | **0.61**|
- | F1 | 0.607 | 0.607 |
-  
-Difference: 0.0000 → Confirms correct model deployment.
-
-------------------------------------------------------------------------
-
-## 🤖 Hugging Face Model
-
-https://huggingface.co/MSG1999/bert-goodreads-genres
+Note : Balanced macro and weighted averages indicate uniform class distribution.
 
 ------------------------------------------------------------------------
 
@@ -122,7 +121,7 @@ docker run --rm -v \$(pwd)/results:/app/results mahek-eval
 
 ## 📈 Evaluation Visualizations
 
-The pipeline auto-generates 7 evaluation plots in `results/plots/`:
+The pipeline auto-generates 4 evaluation plots in `results/plots/`:
 
 | Plot | Description |
 |---|---|
