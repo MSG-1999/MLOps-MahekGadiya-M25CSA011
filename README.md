@@ -2,9 +2,9 @@
 
 ## Fine-Tuning DistilBERT --- End-to-End MLOps Pipeline
 
-**Name : Mahek Gadiya**
-**Roll : M25CSA011**
-**Ml_dl_ops Assignment-3**
+**Name : Mahek Gadiya ,**
+**Roll : M25CSA011 ,**
+**ML_DL_Ops , Assignment-3**
 
 This project implements a complete MLOps workflow for multi-class genre
 classification using DistilBERT, including training, evaluation, Hugging
