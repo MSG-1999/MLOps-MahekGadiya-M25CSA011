@@ -86,7 +86,7 @@ Note : Balanced macro and weighted averages indicate uniform class distribution.
 ------------------------------------------------------------------------
 
 ## 🐳 Docker Usage
-
+```
 ### Build Training Image
 
 docker build -f Dockerfile.train -t mahek-train .
@@ -103,7 +103,7 @@ docker build -f Dockerfile.eval -t mahek-eval .
 ### Run Evaluation
 
 docker run --rm -v \$(pwd)/results:/app/results mahek-eval
-
+```
 ------------------------------------------------------------------------
 
 ### Training Hyperparameters
