@@ -49,15 +49,12 @@ Assignment_3/
 
 ### Overall Metrics
 
-  Metric              Score
-  ------------------- ----------
-  Accuracy            **0.61**
-  Precision (Macro)   0.607
-  Recall (Macro)      0.61
-  F1-Score (Macro)    0.607
-
-Random baseline (8 classes) = 12.5%\
-Model achieves \~5× improvement over random.
+| Metric  | Score |
+|---|---|
+| Accuracy | **0.61** |
+| Precision (Macro) | 0.607 |
+| Recall (Macro) | 0.61 |
+| F1-Score (Macro) | 0.607 |
 
 ------------------------------------------------------------------------
 
@@ -74,11 +71,11 @@ distribution.
 
 ## 🔄 Local vs Hugging Face Evaluation
 
-  Metric     Local   HF Hub
-  ---------- ------- --------
-  Accuracy   0.61    0.61
-  F1         0.607   0.607
-
+ | Metric  | Score | HF Hub  |
+ |---|---|---|
+ | Accuracy | **0.61** | **0.61**|
+ | F1 | 0.607 | 0.607 |
+  
 Difference: 0.0000 → Confirms correct model deployment.
 
 ------------------------------------------------------------------------
