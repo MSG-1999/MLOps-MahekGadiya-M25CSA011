@@ -1,6 +1,6 @@
 ## Results :
 
-1) Best Configuration Found: (Ray Tune + Optuna + ASHA)
+# 1) Best Configuration Found: (Ray Tune + Optuna + ASHA)
 
 |     Hyperparameter    |     Best   Value    |     Notes                                                               |
 |-----------------------|---------------------|-------------------------------------------------------------------------|
@@ -12,7 +12,7 @@
 |     weight_decay      |     0.000263        |     Mild AdamW L2   regularisation                                      |
 
 
-2) Tuned Model vs Baseline (Part 3 – Efficiency Challenge)
+# 2) Tuned Model vs Baseline (Part 3 – Efficiency Challenge)
 
 | Metric               | Baseline | Tuned  | Improvement     |
 |----------------------|----------|--------|-----------------|
