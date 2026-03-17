@@ -24,4 +24,4 @@
 | BLEU Score           | 68.02%   | 90.38% | ⬆️ 22.36pp       |
 
 
-3) Model Link : https://huggingface.co/MSG1999/m25csa011-transformer-english-hindi
+## 3) Model link (M25CSA011_ass_4_best_model.pth): https://huggingface.co/MSG1999/m25csa011-transformer-english-hindi
