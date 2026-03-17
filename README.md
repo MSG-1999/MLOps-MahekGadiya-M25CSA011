@@ -22,3 +22,6 @@
 | Total Training Time  | 129.42m  | 79.31m | 1.6x Speedup    |
 | Final Loss           | 0.0972   | 0.0959 | ⬇️ 1.3%          |
 | BLEU Score           | 68.02%   | 90.38% | ⬆️ 22.36pp       |
+
+
+3) Model Link : https://huggingface.co/MSG1999/m25csa011-transformer-english-hindi
