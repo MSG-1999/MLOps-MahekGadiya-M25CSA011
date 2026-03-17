@@ -4,15 +4,15 @@
 
 |     Hyperparameter    |     Best   Value    |     Notes                                                               |
 |-----------------------|---------------------|-------------------------------------------------------------------------|
-|     lr                |     0.000101        |     Low stable LR   with cosine decay to near-zero over 30 epochs       |
+|     lr                |     0.00010092277088632719        |     Low stable LR   with cosine decay to near-zero over 30 epochs       |
 |     batch_size        |     64              |     Best balance of   gradient quality and training speed               |
 |     num_heads         |     4               |     Fewer heads;   large d_ff compensates for attention capacity        |
 |     d_ff              |     4096            |     Largest FFN —   richer feature representations, key to BLEU gain    |
-|     dropout           |     0.054           |     Very low dropout;   13k pairs sufficient to avoid over-fitting      |
-|     weight_decay      |     0.000263        |     Mild AdamW L2   regularisation                                      |
+|     dropout           |     0.05440091406982377           |     Very low dropout;   13k pairs sufficient to avoid over-fitting      |
+|     weight_decay      |     0.0002615454502348676        |     Mild AdamW L2   regularisation                                      |
 
 
-# 2) Tuned Model vs Baseline (Part 3 – Efficiency Challenge)
+# 2) Tuned Model vs Baseline: (Efficiency Challenge)
 
 | Metric               | Baseline | Tuned  | Improvement     |
 |----------------------|----------|--------|-----------------|
