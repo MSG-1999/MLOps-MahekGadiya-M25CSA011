@@ -1,0 +1,85 @@
+{
+  "os":  "Linux-5.10.0-0.bpo.9-amd64-x86_64-with-glibc2.28",
+  "python":  "CPython 3.9.25",
+  "startedAt":  "2026-04-04T08:53:56.302437Z",
+  "program":  "/DATA/anikde/mahek/Q2/q2_adversarial_art.py",
+  "codePath":  "q2_adversarial_art.py",
+  "codePathLocal":  "q2_adversarial_art.py",
+  "email":  "gadiyamahek1999@gmail.com",
+  "root":  "/DATA/anikde/mahek/Q2",
+  "host":  "BOSS8-OS",
+  "executable":  "/DATA/anikde/miniconda3/envs/mahek/bin/python",
+  "cpu_count":  24,
+  "cpu_count_logical":  48,
+  "gpu":  "NVIDIA GeForce GTX 1080 Ti",
+  "gpu_count":  8,
+  "disk":  {
+    "/":  {
+      "total":  "845492797440",
+      "used":  "499066458112"
+    }
+  },
+  "memory":  {
+    "total":  "270358544384"
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA GeForce GTX 1080 Ti",
+      "memoryTotal":  "11811160064",
+      "cudaCores":  3584,
+      "architecture":  "Pascal",
+      "uuid":  "GPU-91e5becf-cd3c-8ed1-088d-422b450b80a1"
+    },
+    {
+      "name":  "NVIDIA GeForce GTX 1080 Ti",
+      "memoryTotal":  "11811160064",
+      "cudaCores":  3584,
+      "architecture":  "Pascal",
+      "uuid":  "GPU-89289ff2-ad63-8135-af10-07bf42dede4b"
+    },
+    {
+      "name":  "NVIDIA GeForce GTX 1080 Ti",
+      "memoryTotal":  "11811160064",
+      "cudaCores":  3584,
+      "architecture":  "Pascal",
+      "uuid":  "GPU-a8a18295-fafb-2d58-877c-51ea1b2c14e5"
+    },
+    {
+      "name":  "NVIDIA GeForce GTX 1080 Ti",
+      "memoryTotal":  "11811160064",
+      "cudaCores":  3584,
+      "architecture":  "Pascal",
+      "uuid":  "GPU-fd57bc2c-5bb0-eae7-43da-d8173cef5912"
+    },
+    {
+      "name":  "NVIDIA GeForce GTX 1080 Ti",
+      "memoryTotal":  "11811160064",
+      "cudaCores":  3584,
+      "architecture":  "Pascal",
+      "uuid":  "GPU-890abcbd-bfb7-ed86-6513-bd08ebb8c287"
+    },
+    {
+      "name":  "NVIDIA GeForce GTX 1080 Ti",
+      "memoryTotal":  "11811160064",
+      "cudaCores":  3584,
+      "architecture":  "Pascal",
+      "uuid":  "GPU-9dc95ee9-79f2-f02b-afdf-52b4f0b768fb"
+    },
+    {
+      "name":  "NVIDIA GeForce GTX 1080 Ti",
+      "memoryTotal":  "11811160064",
+      "cudaCores":  3584,
+      "architecture":  "Pascal",
+      "uuid":  "GPU-4f50a40f-63bd-a849-2251-6db99ec6b5ef"
+    },
+    {
+      "name":  "NVIDIA GeForce GTX 1080 Ti",
+      "memoryTotal":  "11811160064",
+      "cudaCores":  3584,
+      "architecture":  "Pascal",
+      "uuid":  "GPU-ba22c825-8172-8971-52aa-09af066ae7a0"
+    }
+  ],
+  "cudaVersion":  "12.2",
+  "writerId":  "hpmtxzkwhydd6mjjd8xudioeqzokgjsk"
+}

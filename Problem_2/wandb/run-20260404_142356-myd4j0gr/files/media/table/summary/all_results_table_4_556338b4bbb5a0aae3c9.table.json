@@ -1,0 +1,1 @@
+{"columns": ["Model/Setting", "Attack", "Eps", "Accuracy"], "data": [["ResNet-18 (Clean)", "\u2014", "\u2014", "94.25%"], ["FGSM-Scratch (eps=0.1)", "FGSM", "0.10", "16.80%"], ["FGSM-ART    (eps=0.1)", "FGSM", "0.10", "17.45%"], ["Detector (PGD)", "PGD", "0.03", "99.93%"], ["Detector (BIM)", "BIM", "0.03", "99.57%"]]}

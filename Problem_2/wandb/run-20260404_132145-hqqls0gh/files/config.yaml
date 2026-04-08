@@ -1,0 +1,101 @@
+_wandb:
+    value:
+        cli_version: 0.25.0
+        e:
+            z2w2bch96qgd9aipnpjaaxgcza0xghlz:
+                codePath: q2_adversarial_art.py
+                codePathLocal: q2_adversarial_art.py
+                cpu_count: 24
+                cpu_count_logical: 48
+                cudaVersion: "12.2"
+                disk:
+                    /:
+                        total: "845492797440"
+                        used: "499066482688"
+                email: gadiyamahek1999@gmail.com
+                executable: /DATA/anikde/miniconda3/envs/mahek/bin/python
+                gpu: NVIDIA GeForce GTX 1080 Ti
+                gpu_count: 8
+                gpu_nvidia:
+                    - architecture: Pascal
+                      cudaCores: 3584
+                      memoryTotal: "11811160064"
+                      name: NVIDIA GeForce GTX 1080 Ti
+                      uuid: GPU-91e5becf-cd3c-8ed1-088d-422b450b80a1
+                    - architecture: Pascal
+                      cudaCores: 3584
+                      memoryTotal: "11811160064"
+                      name: NVIDIA GeForce GTX 1080 Ti
+                      uuid: GPU-89289ff2-ad63-8135-af10-07bf42dede4b
+                    - architecture: Pascal
+                      cudaCores: 3584
+                      memoryTotal: "11811160064"
+                      name: NVIDIA GeForce GTX 1080 Ti
+                      uuid: GPU-a8a18295-fafb-2d58-877c-51ea1b2c14e5
+                    - architecture: Pascal
+                      cudaCores: 3584
+                      memoryTotal: "11811160064"
+                      name: NVIDIA GeForce GTX 1080 Ti
+                      uuid: GPU-fd57bc2c-5bb0-eae7-43da-d8173cef5912
+                    - architecture: Pascal
+                      cudaCores: 3584
+                      memoryTotal: "11811160064"
+                      name: NVIDIA GeForce GTX 1080 Ti
+                      uuid: GPU-890abcbd-bfb7-ed86-6513-bd08ebb8c287
+                    - architecture: Pascal
+                      cudaCores: 3584
+                      memoryTotal: "11811160064"
+                      name: NVIDIA GeForce GTX 1080 Ti
+                      uuid: GPU-9dc95ee9-79f2-f02b-afdf-52b4f0b768fb
+                    - architecture: Pascal
+                      cudaCores: 3584
+                      memoryTotal: "11811160064"
+                      name: NVIDIA GeForce GTX 1080 Ti
+                      uuid: GPU-4f50a40f-63bd-a849-2251-6db99ec6b5ef
+                    - architecture: Pascal
+                      cudaCores: 3584
+                      memoryTotal: "11811160064"
+                      name: NVIDIA GeForce GTX 1080 Ti
+                      uuid: GPU-ba22c825-8172-8971-52aa-09af066ae7a0
+                host: BOSS8-OS
+                memory:
+                    total: "270358544384"
+                os: Linux-5.10.0-0.bpo.9-amd64-x86_64-with-glibc2.28
+                program: /DATA/anikde/mahek/Q2/q2_adversarial_art.py
+                python: CPython 3.9.25
+                root: /DATA/anikde/mahek/Q2
+                startedAt: "2026-04-04T07:51:45.442058Z"
+                writerId: z2w2bch96qgd9aipnpjaaxgcza0xghlz
+        m: []
+        python_version: 3.9.25
+        t:
+            "1":
+                - 1
+                - 5
+                - 41
+                - 53
+            "2":
+                - 1
+                - 5
+                - 41
+                - 53
+            "3":
+                - 2
+                - 13
+                - 16
+            "4": 3.9.25
+            "5": 0.25.0
+            "10":
+                - 20
+            "12": 0.25.0
+            "13": linux-x86_64
+batch_size:
+    value: 128
+epochs:
+    value: 80
+lr:
+    value: 0.1
+optimizer:
+    value: SGD+Nesterov
+scheduler:
+    value: CosineAnnealing

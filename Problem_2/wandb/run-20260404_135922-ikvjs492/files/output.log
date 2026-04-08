@@ -1,0 +1,19 @@
+Clean Accuracy: 94.25%
+
+   Eps |   Clean% |   Scratch% |     ART% |   Drop-S% |   Drop-A%
+----------------------------------------------------------------------
+  0.01 |   94.25% |     48.70% |   52.55% |    45.55% |    41.70%
+  0.02 |   94.25% |     42.00% |   45.45% |    52.25% |    48.80%
+  0.03 |   94.25% |     40.35% |   43.35% |    53.90% |    50.90%
+  0.05 |   94.25% |     33.80% |   35.90% |    60.45% |    58.35%
+  0.10 |   94.25% |     16.80% |   17.45% |    77.45% |    76.80%
+  0.20 |   94.25% |     12.05% |   12.20% |    82.20% |    82.05%
+  0.30 |   94.25% |      9.90% |    9.95% |    84.35% |    84.30%
+
+WandB graphs logged:
+  fgsm_acc_vs_eps     — accuracy vs epsilon line plot
+  fgsm_drop_vs_eps    — accuracy drop vs epsilon line plot
+  fgsm_samples        — 10x3 image grid
+
+Plots saved to: ./plots/
+Log saved to  : ./logs/fgsm_results.log

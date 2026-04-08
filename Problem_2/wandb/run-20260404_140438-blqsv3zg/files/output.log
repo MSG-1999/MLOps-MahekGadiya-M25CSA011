@@ -1,0 +1,54 @@
+WandB: Logged 10 PGD sample images
+ Epoch | Train_Loss Train_Acc% |   Val_Loss   Val_Acc% | Note
+----------------------------------------------------------------------
+                                                                                                                                
+     1 |     0.7549     50.11% |     0.7230     48.70% | <-- best
+  -> Checkpoint: ./weights/detector_PGD_best.pt
+     2 |     0.7044     50.36% |     0.6942     49.83% | <-- best
+  -> Checkpoint: ./weights/detector_PGD_best.pt
+     3 |     0.7039     49.10% |     0.7069     49.87% | <-- best
+  -> Checkpoint: ./weights/detector_PGD_best.pt
+     4 |     0.6981     49.69% |     0.7137     50.17% | <-- best
+  -> Checkpoint: ./weights/detector_PGD_best.pt
+     5 |     0.6962     50.48% |     0.6953     48.57% |
+     6 |     0.6673     56.81% |     0.5546     74.67% | <-- best
+  -> Checkpoint: ./weights/detector_PGD_best.pt
+     7 |     0.1756     92.76% |     0.2547     91.63% | <-- best
+  -> Checkpoint: ./weights/detector_PGD_best.pt
+     8 |     0.0514     98.15% |     0.2870     91.60% |
+     9 |     0.0300     98.91% |     0.1596     94.67% | <-- best
+  -> Checkpoint: ./weights/detector_PGD_best.pt
+    10 |     0.0320     98.81% |     0.0264     99.07% | <-- best
+  -> Checkpoint: ./weights/detector_PGD_best.pt
+    11 |     0.0131     99.57% |     0.0099     99.53% | <-- best
+  -> Checkpoint: ./weights/detector_PGD_best.pt
+    12 |     0.0125     99.56% |     0.0157     99.50% |
+    13 |     0.0062     99.81% |     0.0086     99.77% | <-- best
+  -> Checkpoint: ./weights/detector_PGD_best.pt
+    14 |     0.0067     99.79% |     0.0114     99.60% |
+    15 |     0.0036     99.90% |     0.0049     99.87% | <-- best
+  -> Checkpoint: ./weights/detector_PGD_best.pt
+    16 |     0.0021     99.94% |     0.0050     99.80% |
+    17 |     0.0016     99.92% |     0.0541     98.70% |
+    18 |     0.0039     99.87% |     0.0063     99.77% |
+    19 |     0.0024     99.92% |     0.0032     99.90% | <-- best
+  -> Checkpoint: ./weights/detector_PGD_best.pt
+    20 |     0.0007     99.98% |     0.0041     99.87% |
+    21 |     0.0007     99.98% |     0.0038     99.93% | <-- best
+  -> Checkpoint: ./weights/detector_PGD_best.pt
+    22 |     0.0004     99.99% |     0.0010    100.00% | <-- best
+  -> Checkpoint: ./weights/detector_PGD_best.pt
+    23 |     0.0002    100.00% |     0.0028     99.90% |
+    24 |     0.0001    100.00% |     0.0012     99.90% |
+    25 |     0.0002    100.00% |     0.0028     99.87% |
+    26 |     0.0001    100.00% |     0.0007    100.00% |
+    27 |     0.0005     99.99% |     0.0011     99.93% |
+    28 |     0.0001    100.00% |     0.0008     99.97% |
+    29 |     0.0001    100.00% |     0.0007    100.00% |
+    30 |     0.0003     99.99% |     0.0009    100.00% |
+  model.load_state_dict(torch.load(
+                                                                                                                                
+======================================================================
+[PASS] Detection Accuracy (PGD): 99.93%
+Checkpoint: ./weights/detector_PGD_best.pt
+Log file  : ./logs/detector_PGD_train.log
