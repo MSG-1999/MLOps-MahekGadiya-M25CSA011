@@ -1,0 +1,11 @@
+exp_name,use_lora,rank,alpha,dropout,best_val_acc_%,overall_test_acc_%,trainable_params,total_params,ckpt_path,log_path
+exp01_no_lora,False,0,0,0.1,80.77,80.77,38500,21704164,weights/exp01_no_lora_best.pt,logs/exp01_no_lora.log
+exp02_r2_a2,True,2,2,0.1,89.65,89.65,93796,21759460,weights/exp02_r2_a2_best.pt,logs/exp02_r2_a2.log
+exp03_r2_a4,True,2,4,0.1,90.03,90.03,93796,21759460,weights/exp03_r2_a4_best.pt,logs/exp03_r2_a4.log
+exp04_r2_a8,True,2,8,0.1,89.98,89.97,93796,21759460,weights/exp04_r2_a8_best.pt,logs/exp04_r2_a8.log
+exp05_r4_a2,True,4,2,0.1,89.91,89.91,149092,21814756,weights/exp05_r4_a2_best.pt,logs/exp05_r4_a2.log
+exp06_r4_a4,True,4,4,0.1,90.11,90.11,149092,21814756,weights/exp06_r4_a4_best.pt,logs/exp06_r4_a4.log
+exp07_r4_a8,True,4,8,0.1,90.28,90.28,149092,21814756,weights/exp07_r4_a8_best.pt,logs/exp07_r4_a8.log
+exp08_r8_a2,True,8,2,0.1,90.09,89.97,259684,21925348,weights/exp08_r8_a2_best.pt,logs/exp08_r8_a2.log
+exp09_r8_a4,True,8,4,0.1,90.17,90.17,259684,21925348,weights/exp09_r8_a4_best.pt,logs/exp09_r8_a4.log
+exp10_r8_a8,True,8,8,0.1,90.46,90.44,259684,21925348,weights/exp10_r8_a8_best.pt,logs/exp10_r8_a8.log
