@@ -1,0 +1,14 @@
+{
+  "exp_name": "exp10_r8_a8",
+  "use_lora": true,
+  "rank": 8,
+  "alpha": 8,
+  "dropout": 0.1,
+  "best_val_acc": 0.9046,
+  "overall_test_acc": 0.904400110244751,
+  "trainable_params": 259684,
+  "total_params": 21925348,
+  "ckpt_path": "weights/BEST_MODEL/best_model.pt",
+  "log_path": "logs/exp10_r8_a8.log",
+  "saved_at": "2026-04-07 02:52:50"
+}
