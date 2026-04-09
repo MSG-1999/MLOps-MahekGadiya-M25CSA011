@@ -67,6 +67,67 @@ LoRA update: W' = W + (α/r)·B·A   |   scaling = α/r = 8/8 = 1.0
 
 ---
 
+## ⚙️ Installation
+
+### Docker (required for submission)
+
+```bash
+docker build -t dlops-assg5 .
+```
+
+### Local
+
+```bash
+pip install -r requirements_q1.txt
+```
+
+---
+
+## 🚀 Running Experiments
+
+### Q1 – Baseline (head-only, no LoRA)
+
+```bash
+docker run --gpus all --rm \
+  -e WANDB_API_KEY=<your_wandb_key> \
+  -v $(pwd)/data:/workspace/data \
+  dlops-assg5 \
+  python q1_train.py --baseline
+```
+
+### Q1 – Full LoRA grid (9 experiments)
+
+```bash
+docker run --gpus all --rm \
+  -e WANDB_API_KEY=<your_wandb_key> \
+  -v $(pwd)/data:/workspace/data \
+  dlops-assg5 \
+  python q1_train.py
+```
+
+### Q1 – Optuna hyperparameter search (20 trials)
+
+```bash
+docker run --gpus all --rm \
+  -e WANDB_API_KEY=<your_wandb_key> \
+  -v $(pwd)/data:/workspace/data \
+  dlops-assg5 \
+  python q1_optuna.py --trials 20
+```
+
+### Q1 – Retrain best config and push to HuggingFace Hub
+
+```bash
+docker run --gpus all --rm \
+  -e WANDB_API_KEY=<your_wandb_key> \
+  -e HF_TOKEN=<your_huggingface_token> \
+  -v $(pwd)/data:/workspace/data \
+  dlops-assg5 \
+  python q1_push.py
+```
+
+---
+
 ## ⚙️ Hyperparameters
 
 ### Training
@@ -383,6 +444,77 @@ Training **ResNet-18** from scratch on **CIFAR-10**, attacking with **FGSM** (cu
 | Part (ii) BIM Detector | ResNet-34 binary | **99.57%** | ≥ 70% ✅ |
 
 ---
+## Docker — Build and Run
+
+> **NOTE: All training and testing must be run inside Docker.**
+
+### Step 1 — Build the image
+
+```bash
+cd Q2
+docker build -t dlops-assg5 .
+```
+
+### Step 2 — Set your WandB API key
+
+```bash
+export WANDB_API_KEY=your_wandb_api_key_here
+```
+
+### Step 3 — Run training and evaluation
+
+#### Option A: docker compose (recommended)
+
+```bash
+# Train ResNet-18 (Part i)
+docker compose run train
+
+# FGSM attack evaluation (Part i)
+docker compose run fgsm
+
+# Train both detectors — PGD + BIM (Part ii)
+docker compose run detector
+
+# Train only PGD detector
+docker compose run detector_pgd
+
+# Train only BIM detector
+docker compose run detector_bim
+```
+
+#### Option B: docker run (manual)
+
+```bash
+# Part (i) — Train ResNet-18
+docker run --gpus all \
+  -e WANDB_API_KEY=$WANDB_API_KEY \
+  -v $(pwd)/weights:/workspace/Q2/weights \
+  -v $(pwd)/logs:/workspace/Q2/logs \
+  -v $(pwd)/plots:/workspace/Q2/plots \
+  -v $(pwd)/data:/workspace/Q2/data \
+  dlops-assg5 \
+  python train.py --epochs 80 --lr 0.1 --batch_size 128
+
+# Part (i) — FGSM Attack
+docker run --gpus all \
+  -e WANDB_API_KEY=$WANDB_API_KEY \
+  -v $(pwd)/weights:/workspace/Q2/weights \
+  -v $(pwd)/logs:/workspace/Q2/logs \
+  -v $(pwd)/plots:/workspace/Q2/plots \
+  -v $(pwd)/data:/workspace/Q2/data \
+  dlops-assg5 \
+  python test_fgsm.py --weights ./weights/resnet18_cifar10_best.pt
+
+# Part (ii) — Train Detectors
+docker run --gpus all \
+  -e WANDB_API_KEY=$WANDB_API_KEY \
+  -v $(pwd)/weights:/workspace/Q2/weights \
+  -v $(pwd)/logs:/workspace/Q2/logs \
+  -v $(pwd)/plots:/workspace/Q2/plots \
+  -v $(pwd)/data:/workspace/Q2/data \
+  dlops-assg5 \
+  python train_detector.py --attack both --epochs 30 --lr 0.001
+```
 
 ## ⚙️ Q2 Hyperparameters
 
