@@ -17,10 +17,9 @@ os.environ["WANDB_DISABLED"] = "true"
 # -----------------------------
 # Configuration
 # -----------------------------
-HF_MODEL_NAME = "MSG1999/bert-goodreads-genres"  # Load from HuggingFace
+HF_MODEL_NAME = "MSG1999/bert-goodreads-genres"
 RESULTS_DIR = "results"
 MAX_LENGTH = 512
-TEST_SIZE = 200
 
 os.makedirs(RESULTS_DIR, exist_ok=True)
 
@@ -28,23 +27,25 @@ os.makedirs(RESULTS_DIR, exist_ok=True)
 # Load model and tokenizer from Hugging Face
 # -----------------------------
 print("="*50)
-print(f"Loading model from Hugging Face: {HF_MODEL_NAME}")
+print("Loading model from Hugging Face: " + HF_MODEL_NAME)
 print("="*50 + "\n")
 
 try:
     tokenizer = DistilBertTokenizerFast.from_pretrained(HF_MODEL_NAME)
     model = DistilBertForSequenceClassification.from_pretrained(HF_MODEL_NAME)
-    print(f"✓ Model successfully loaded from https://huggingface.co/{HF_MODEL_NAME}\n")
+    print("Model successfully loaded from https://huggingface.co/" + HF_MODEL_NAME + "\n")
 except Exception as e:
-    print(f"✗ Error loading model from HuggingFace: {e}")
+    print("Error loading model from HuggingFace: " + str(e))
     print("Falling back to locally saved model...\n")
     MODEL_DIR = "models"
     tokenizer = DistilBertTokenizerFast.from_pretrained(MODEL_DIR)
     model = DistilBertForSequenceClassification.from_pretrained(MODEL_DIR)
-    print("✓ Model loaded from local directory\n")
+    print("Model loaded from local directory\n")
 
-# -----------------------------  
+# -----------------------------
 # Load dataset
+# 2000 reviews per genre x 8 genres = 16000 total
+# 80% train = 12800, 20% test = 3200
 # -----------------------------
 print("="*50)
 print("Loading Goodreads test dataset...")
@@ -53,13 +54,14 @@ print("="*50 + "\n")
 _, test_dataset, label_encoder = load_and_prepare_data(
     tokenizer=tokenizer,
     max_length=MAX_LENGTH,
-    test_size=TEST_SIZE,
+    sample_size=2000,
+    train_ratio=0.8,
     force_reload=False
 )
 
-print(f" Test samples: {len(test_dataset)}")
-print(f"Number of genres: {len(label_encoder.classes_)}")
-print(f"Genres: {list(label_encoder.classes_)}\n")
+print("Test samples: " + str(len(test_dataset)))
+print("Number of genres: " + str(len(label_encoder.classes_)))
+print("Genres: " + str(list(label_encoder.classes_)) + "\n")
 
 # -----------------------------
 # Metrics
@@ -73,7 +75,6 @@ def compute_metrics(eval_pred):
     logits, labels = eval_pred
     predictions = np.argmax(logits, axis=1)
 
-    # Use macro averaging for multi-class classification
     accuracy = accuracy_metric.compute(predictions=predictions, references=labels)
     precision = precision_metric.compute(predictions=predictions, references=labels, average="macro")
     recall = recall_metric.compute(predictions=predictions, references=labels, average="macro")
@@ -105,13 +106,13 @@ eval_results = trainer.evaluate(eval_dataset=test_dataset)
 
 print("\nOverall Evaluation Results:")
 for key, value in eval_results.items():
-    print(f"  {key}: {value}")
+    print("  " + str(key) + ": " + str(value))
 
 # Save evaluation results
 results_path = os.path.join(RESULTS_DIR, "hf_eval_results.json")
 with open(results_path, "w") as f:
     json.dump(eval_results, f, indent=4)
-print(f"\nResults saved to {results_path}")
+print("\nResults saved to " + results_path)
 
 # Get predictions for detailed analysis
 print("\nGenerating predictions for detailed analysis...")
@@ -137,10 +138,10 @@ report_dict = classification_report(true_label_names, predicted_label_names, out
 report_path = os.path.join(RESULTS_DIR, "hf_classification_report.json")
 with open(report_path, "w") as f:
     json.dump(report_dict, f, indent=4)
-print(f"Classification report saved to {report_path}")
+print("Classification report saved to " + report_path)
 
 print("\n" + "="*50)
 print("Evaluation complete!")
 print("="*50)
 
-print(f"\nResults saved to {results_path}")
+print("\nResults saved to " + results_path)
