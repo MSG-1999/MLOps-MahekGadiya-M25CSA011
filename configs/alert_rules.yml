@@ -1,0 +1,32 @@
+groups:
+  - name: dreamforge_alerts
+    rules:
+      # Alert if the app metrics exporter is down
+      - alert: DreamForgeAppDown
+        expr: up{job="dreamforge"} == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "DreamForge app exporter is down"
+          description: "The Streamlit app metrics exporter on port 8012 is unreachable."
+
+      # Alert if error rate exceeds 10%
+      - alert: HighGenerationErrorRate
+        expr: sum(rate(sd_generations_total{status="error"}[5m])) / sum(rate(sd_generations_total[5m])) > 0.1
+        for: 2m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High image generation error rate"
+          description: "More than 10% of image generations have failed in the last 5 minutes."
+
+      # Alert if latency is consistently high (> 60s)
+      - alert: HighGenerationLatency
+        expr: rate(sd_generation_duration_seconds_sum[5m]) / rate(sd_generation_duration_seconds_count[5m]) > 60
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High generation latency"
+          description: "Average image generation time across all requests is over 60 seconds."

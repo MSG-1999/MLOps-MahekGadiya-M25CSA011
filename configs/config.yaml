@@ -1,0 +1,90 @@
+# configs/config.yaml
+# Main System Configuration
+
+app:
+  title: "DreamForge - Text to Image Studio"
+  version: "1.0.0"
+  description: "End-to-End Stable Diffusion Generation with MLOps"
+  debug: false
+  host: "localhost"
+  port: 8503
+
+model:
+  id: "stable-diffusion-v1-5/stable-diffusion-v1-5"
+  revision: "main"
+  cache_dir: "./model_cache"
+  device: "auto"         # auto | cpu | cuda | mps
+  dtype: "float16"       # float32 | float16 | bfloat16
+  enable_xformers: true
+  enable_attention_slicing: true
+  enable_vae_slicing: true
+  enable_cpu_offload: false
+  safety_checker: true
+
+inference:
+  default_steps: 20
+  default_guidance_scale: 7.5
+  default_width: 512
+  default_height: 512
+  max_steps: 150
+  min_steps: 1
+  max_batch_size: 4
+  timeout_seconds: 300
+  schedulers:
+    - "DDIM"
+    - "PNDM"
+    - "LMS"
+    - "Euler"
+    - "Euler A"
+    - "DPM++ 2M"
+    - "DPM++ SDE"
+
+storage:
+  output_dir: "./artifacts/generated"
+  logs_dir: "./logs"
+  max_stored_images: 500
+  image_format: "PNG"
+  save_metadata: true
+
+mlops:
+  mlflow:
+    tracking_uri: "http://localhost:5012"
+    experiment_name: "stable-diffusion-v1-5"
+    artifact_location: "./mlflow-artifacts"
+    auto_log: true
+
+  monitoring:
+    enable_prometheus: true
+    prometheus_port: 8012
+    log_level: "INFO"
+    metrics_window: 100      # rolling window for stats
+
+  alerts:
+    latency_threshold_ms: 60000   # 60s
+    error_rate_threshold: 0.1     # 10%
+    enable_email: false
+
+quality:
+  enable_nsfw_filter: true
+  enable_watermark: false
+  jpeg_quality: 95
+
+training:
+  id: "sd-lora-indian-festivals"
+  output_dir: "./lora_weights"
+  data_dir: "./data"
+  lora:
+    rank: 16
+    alpha: 32
+    dropout: 0.1
+    target_modules: ["to_q", "to_k", "to_v", "to_out.0"]
+  hpo:
+    n_trials: 10
+    samples_per_trial: 500
+  params:
+    learning_rate: 1.34e-4
+    batch_size: 2
+    epochs: 10
+    mixed_precision: "fp16"
+    gradient_accumulation_steps: 4
+    log_every_n_steps: 1

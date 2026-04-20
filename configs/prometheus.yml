@@ -1,0 +1,20 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - "alert_rules.yml"
+
+scrape_configs:
+  - job_name: "dreamforge"
+    static_configs:
+      - targets:
+          - "dreamforge:8012"          # Docker-compose internal
+          - "localhost:8012"           # Host-based run
+          - "host.docker.internal:8012" # Docker-to-Host (Mac/Win/Linux)
+    metrics_path: /metrics
+    scrape_interval: 10s
+
+  - job_name: "mlflow"
+    static_configs:
+      - targets: ["mlflow:5012"]
