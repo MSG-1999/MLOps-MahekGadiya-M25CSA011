@@ -1,10 +1,8 @@
 """
-train.py
 UNet-based Image Segmentation on CityScapes dataset
 - 23 segmentation classes
-- 80/20 train-test split with seed 42
+- 80:20 train-test split with seed 42
 - Computes mIOU and mDice during training
-- Saves plots and best model
 """
 
 import os
