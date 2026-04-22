@@ -1,10 +1,3 @@
-"""
-app.py
-2-page Streamlit app for CityScapes Image Segmentation
-Page 1: Training plots + test metrics
-Page 2: Upload 4 images → show ground-truth & predicted masks
-"""
-
 import os
 import json
 import numpy as np
