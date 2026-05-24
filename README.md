@@ -60,5 +60,5 @@ Each assignment is maintained in a separate branch and automatically documented 
 
 ## 👨‍💻 Author
 
-Aditya Pratap Singh  
+Mahek Gadiya  
 AI/ML Engineer
